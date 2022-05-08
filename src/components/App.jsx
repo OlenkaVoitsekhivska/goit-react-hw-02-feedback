@@ -2,6 +2,7 @@ import { Component } from 'react';
 import Statistics from './Statistics/Statistics';
 import FeedbackOptions from './FeedbackOptions/FeedbackOptions';
 import Section from './Section/Section';
+import PropTypes from 'prop-types';
 
 class App extends Component {
   state = {
@@ -24,6 +25,8 @@ class App extends Component {
   };
 
   render() {
+    let stateProps = Object.keys(this.state);
+
     let { good, neutral, bad } = this.state;
     let total = this.countTotalFeedback();
     let goodRevPercentage = this.countPositiveFeedbackPercentage();
@@ -31,7 +34,12 @@ class App extends Component {
       <>
         <Section
           title={'Please leave feedback'}
-          children={<FeedbackOptions onLeaveFeedback={this.processClick} />}
+          children={
+            <FeedbackOptions
+              options={stateProps}
+              onLeaveFeedback={this.processClick}
+            />
+          }
         />
 
         {total >= 1 && (

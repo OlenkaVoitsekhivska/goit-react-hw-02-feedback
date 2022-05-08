@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 function Section({ title, children }) {
   return (
     <section>
@@ -7,4 +9,7 @@ function Section({ title, children }) {
   );
 }
 
+Section.propTypes = {
+  title: PropTypes.string,
+};
 export default Section;
