@@ -42,25 +42,19 @@ class App extends Component {
           }
         />
 
-        {total >= 1 ? (
-          <Section
-            title="Statistics"
-            children={
-              <Statistics
-                good={good}
-                neutral={neutral}
-                bad={bad}
-                total={total}
-                positivePercentage={goodRevPercentage}
-              />
-            }
-          />
-        ) : (
-          <Section
-            title="Statistics"
-            children={<Notification message="No feedback" />}
-          />
-        )}
+        <Section title="Statistics">
+          {total ? (
+            <Statistics
+              good={good}
+              neutral={neutral}
+              bad={bad}
+              total={total}
+              positivePercentage={goodRevPercentage}
+            />
+          ) : (
+            <Notification message="No feedback" />
+          )}
+        </Section>
       </>
     );
   }
