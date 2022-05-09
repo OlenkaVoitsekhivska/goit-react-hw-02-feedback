@@ -9,7 +9,6 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
 }
 
 code {
@@ -17,7 +16,8 @@ code {
     monospace;
 }
 
-h2 {
+h2,
+h3 {
   text-align: center;
 }
 
@@ -28,7 +28,6 @@ ul {
   margin-left: auto;
   margin-right: auto;
   font-size: large;
-
 }
 
 li {

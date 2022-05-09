@@ -4,25 +4,24 @@ import PropTypes from 'prop-types';
 function FeedbackOptions({ options, onLeaveFeedback }) {
   return (
     <div className={style.box}>
-      <button onClick={onLeaveFeedback} id={options[0]} className={style.good}>
-        {options[0]}
-      </button>
-      <button
-        onClick={onLeaveFeedback}
-        id={options[1]}
-        className={style.neutral}
-      >
-        {options[1]}
-      </button>
-      <button onClick={onLeaveFeedback} id={options[2]} className={style.bad}>
-        {options[2]}
-      </button>
+      {options.map(option => {
+        return (
+          <button
+            key={option}
+            onClick={onLeaveFeedback}
+            id={option}
+            className={style[option]}
+          >
+            {option}
+          </button>
+        );
+      })}
     </div>
   );
 }
 
 FeedbackOptions.propTypes = {
-  options: PropTypes.arrayOf(PropTypes.string),
-  onLeaveFeedback: PropTypes.func,
+  options: PropTypes.arrayOf(PropTypes.string).isRequired,
+  onLeaveFeedback: PropTypes.func.isRequired,
 };
 export default FeedbackOptions;
